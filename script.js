@@ -21,7 +21,7 @@ function generateGrid(numBoxes) {
       rowDiv.addEventListener("mouseenter", colorBox);
       colDiv.appendChild(rowDiv);
 
-      if (i === 0 && j === 0) rowDiv.appendChild(gridEditButton);
+      //if (i === 0 && j === 0) rowDiv.appendChild(gridEditButton);
     }
   }
 }
@@ -31,8 +31,9 @@ function random(number) {
 }
 
 function colorBox(e) {
-  const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
-  e.target.style.backgroundColor = rndCol;
+  const randCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+  e.target.style.backgroundColor = randCol;
+  e.target.style.opacity -= '-0.1';
 }
 
 window.addEventListener("load", () => {
