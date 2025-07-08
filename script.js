@@ -1,5 +1,4 @@
-const gridEditButton = document.createElement("button");
-gridEditButton.textContent = "Edit Grid";
+const gridEditButton = document.querySelector("button");
 gridEditButton.addEventListener("click", () => {
   let numSquares = prompt("Number of squares per side (100 max)", "16");
   if (numSquares != null && numSquares <= 100 && numSquares > 0) {
@@ -21,7 +20,6 @@ function generateGrid(numBoxes) {
       rowDiv.addEventListener("mouseenter", colorBox);
       colDiv.appendChild(rowDiv);
 
-      //if (i === 0 && j === 0) rowDiv.appendChild(gridEditButton);
     }
   }
 }
