@@ -18,7 +18,7 @@ function generateGrid(numBoxes) {
     for (let j = 0; j < numBoxes; j++) {
       const rowDiv = document.createElement("div");
       rowDiv.classList.add("row");
-      rowDiv.onmouseenter = () => (rowDiv.style.background = "black");
+      rowDiv.addEventListener("mouseenter", colorBox);
       colDiv.appendChild(rowDiv);
 
       if (i === 0 && j === 0) rowDiv.appendChild(gridEditButton);
@@ -26,7 +26,15 @@ function generateGrid(numBoxes) {
   }
 }
 
-window.addEventListener("load", () => {
-    generateGrid(16);
-});
+function random(number) {
+  return Math.floor(Math.random() * (number + 1));
+}
 
+function colorBox(e) {
+  const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+  e.target.style.backgroundColor = rndCol;
+}
+
+window.addEventListener("load", () => {
+  generateGrid(16);
+});
